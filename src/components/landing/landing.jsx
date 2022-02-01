@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 
 import { Carousel } from "react-carousel-minimal";
 export default function Landing() {
@@ -74,9 +75,16 @@ export default function Landing() {
         alignItems="center"
         justify="center"
       >
-        <h1>Bienvenidos a T.O.S</h1>
-        <Button onClick={() => loginWithRedirect()}>INICIAR</Button>
-        <Button onClick={() => loginWithRedirect()}>REGISTRAR</Button>
+        <Stack
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          spacing={2}
+        >
+          <h1>Bienvenidos a T.O.S</h1>
+          <Button onClick={() => loginWithRedirect()}>INICIAR</Button>
+          <Button onClick={() => loginWithRedirect()}>REGISTRAR</Button>
+        </Stack>
 
         <Carousel
           data={data}
