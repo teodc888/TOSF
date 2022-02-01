@@ -12,57 +12,29 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Avatar from "@mui/material/Avatar";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
+  const navigate = useNavigate();
   const { user, logout } = useAuth0();
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
   };
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <Link to="/perfil">
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      </Link>  
-      <MenuItem onClick={() => logout({returnTo: window.location.origin})}>Cerrar Sesion</MenuItem>
-    </Menu>
-  );
+  const handleClickPerfil = () => {
+    navigate("/perfil");
+  };
+
+
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -101,7 +73,7 @@ export default function NavBar() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleClickPerfil}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -111,11 +83,9 @@ export default function NavBar() {
         >
           <AccountCircle />
         </IconButton>
-        <Link to="/perfil">
-         <p>Profile</p>
-        </Link>
+          <p>Perfil</p>
       </MenuItem>
-      <MenuItem onClick={() => logout({returnTo: window.location.origin})}>
+      <MenuItem onClick={() => logout({ returnTo: window.location.origin })}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -138,7 +108,7 @@ export default function NavBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { sm: "block",  xs: "flex" } }}
+            sx={{ display: { sm: "block", xs: "flex" } }}
           >
             T.O.S
           </Typography>
@@ -166,10 +136,9 @@ export default function NavBar() {
               size="large"
               edge="end"
               aria-label="account of current user"
-              aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
               color="inherit"
+              onClick={handleClickPerfil}
             >
               <Avatar alt="Remy Sharp" src={user.picture} />
             </IconButton>
@@ -189,7 +158,6 @@ export default function NavBar() {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
     </Box>
   );
 }

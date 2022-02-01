@@ -5,7 +5,9 @@ import Home from "./components/home/home";
 import Perfil from "./components/perfil/perfil";
 import Landing from "./components/landing/landing";
 import NavBar from "./components/navBar/navBar";
-
+import Mensajes from "./components/mensajes/mensajes";
+import Notificaciones from "./components/notificaciones/notificaciones";
+import Guardado from "./components/guardado/guardado";
 
 function App() {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -18,6 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home /> } />
             <Route path="/perfil" element={<Perfil />} />
+            <Route path="/mensajes" element={<Mensajes />} />
+            <Route path="/notificaciones" element={<Notificaciones />} />
+            <Route path="/guardado" element={<Guardado />} />
           </Routes>
         </>
       ) : isLoading ? (
