@@ -9,8 +9,11 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function NavLeft() {
+
+  const {logout} = useAuth0();
 
   const navigate = useNavigate();
 
@@ -61,7 +64,7 @@ export default function NavLeft() {
             </IconButton>
           </Grid>
           <Grid item xs={16}>
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={() => logout()}>
               <LogoutIcon />
               CERRAR SESION
             </IconButton>

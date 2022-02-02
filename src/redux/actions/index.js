@@ -18,7 +18,7 @@ export const createUsuario = payload => {
 };
 
 export const mostrarUsuarios = () => {
-    return async () => {
+    return async dispatch => {
         try {
             let res = await axios(`http://localhost:3001/usuarios`);
             return dispatch({

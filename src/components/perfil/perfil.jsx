@@ -1,5 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+// import { mostrarUsuarios } from "./redux/actions/index";
+// import { useDispatch, useSelector } from "react-redux";
 
 export default function Perfil() {
   const { user, isAuthenticated, isLoading } = useAuth0();

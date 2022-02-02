@@ -5,8 +5,8 @@ import Grid from "@mui/material/Grid";
 import NavLeft from "../navLeft/navLeft";
 import NavRight from "../navRight/navRigth";
 import Historias from "../historias/historias";
-
 export default function Home() {
+
   return (
     <div>
       <Container maxWidth="m">
