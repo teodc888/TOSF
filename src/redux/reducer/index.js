@@ -6,7 +6,7 @@ const persistConfig = {
   key: "root",
   debug: true,
   storage,
-  whitelist: ["usuarios"],
+  whitelist: ["usuarioLogueado"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

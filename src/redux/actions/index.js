@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import {
     USUARIOS,
+    USUARIO_LOGEADO,
 } from './actionsTyps';
 
 
@@ -25,6 +26,22 @@ export const mostrarUsuarios = () => {
                 type: USUARIOS,
                 payload: res.data,
             });
+        } catch (error) {
+            console.log(error)
+        }
+
+    };
+};
+
+
+  export const userLogin = email => {
+    return async dispatch => {
+        try {
+            let res = await axios.post(`http://localhost:3001/usuarios/logeado?email=${email}`);
+            return dispatch({
+              type: USUARIO_LOGEADO,
+              payload: res.data,
+          });
         } catch (error) {
             console.log(error)
         }

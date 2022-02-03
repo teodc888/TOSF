@@ -1,1 +1,2 @@
 export const USUARIOS = "USUARIOS";
+export const USUARIO_LOGEADO = "USUARIO_LOGEADO";
