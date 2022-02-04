@@ -17,6 +17,10 @@ export default function NavLeft() {
 
   const navigate = useNavigate();
 
+  const handleClickInicio = (e) => {
+    navigate("/");
+  };
+
   const handleClickPerfil = (e) => {
     navigate("/perfil");
   };
@@ -31,10 +35,10 @@ export default function NavLeft() {
   };
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, border:"solid black", width:"100%", height:"100%", marginTop:"1%"}}>
         <Grid container spacing={6} columns={16}>
           <Grid item xs={16}>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick={handleClickInicio}>
               <HomeIcon />
               INICIO
             </IconButton>

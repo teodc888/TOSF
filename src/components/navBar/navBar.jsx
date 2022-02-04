@@ -36,6 +36,7 @@ export default function NavBar() {
 
 
 
+
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
@@ -102,7 +103,7 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "#b71c1c" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#212121" }}>
         <Toolbar>
           <Typography
             variant="h6"

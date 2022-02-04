@@ -10,10 +10,10 @@ export default function NavRight() {
 
   return (
     <div>
-      <Card sx={{ maxWidth: 340, margin: "auto" }}>
+      <Card sx={{ maxWidth: 340, margin: "auto", marginTop:"1%"  }}>
         <CardMedia
           component="img"
-          sx={{ float: "left", width: "110px", height: "110px" }}
+          sx={{ float: "left", width: "110px", height: "110px"}}
           image={user.picture}
           alt="green iguana"
         />
